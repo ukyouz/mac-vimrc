@@ -11,6 +11,9 @@ let g:gutentags_modules = []
 if executable('ctags')
 	let g:gutentags_modules += ['ctags']
 endif
+if executable('cscope')
+	let g:gutentags_modules += ['cscope']
+endif
 if executable('gtags-cscope') && executable('gtags')
 	let g:gutentags_modules += ['gtags_cscope']
 endif

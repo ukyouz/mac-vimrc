@@ -27,6 +27,7 @@ Plug 'ludovicchabant/vim-gutentags', {'for': ['c', 'python', 'javascript', 'php'
 " Plug 'Shougo/denite.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF'
+Plug 'hari-rangarajan/CCTree'
 " colorscheme
 Plug 'itchyny/lightline.vim'
 Plug 'mkalinski/vim-lightline_tagbar'
@@ -57,6 +58,7 @@ source ~/.vim/config/plug/git-enhanced.vim
 source ~/.vim/config/plug/nerdtree.vim
 source ~/.vim/config/plug/coc.vim
 " source ~/.vim/config/plug/gtags.vim
+source ~/.vim/config/plug/cctree.vim
 " source ~/.vim/config/plug/denite.vim
 source ~/.vim/config/plug/leaderf.vim
 source ~/.vim/config/plug/vim-lsp-cxx-highlight.vim
