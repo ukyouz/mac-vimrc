@@ -49,6 +49,7 @@ call plug#end()
 " filetype plugin indent on    " required
 
 map ; :
+nnoremap , @@
 let mapleader = ' '
 
 source ~/.vim/config/plug/vim-enhancement.vim
@@ -60,6 +61,7 @@ source ~/.vim/config/plug/nerdtree.vim
 " source ~/.vim/config/plug/coc.vim
 " source ~/.vim/config/plug/cctree.vim
 source ~/.vim/config/plug/gtags.vim
+source ~/.vim/config/plug/vim-highlightedyank.vim
 " source ~/.vim/config/plug/denite.vim
 source ~/.vim/config/plug/leaderf.vim
 " source ~/.vim/config/plug/vim-lsp-cxx-highlight.vim
@@ -107,7 +109,7 @@ set list listchars=tab:\▸\ ,trail:·,extends:»,precedes:«,nbsp:×
 set ttimeoutlen=50
 "set fillchars+=vert:\█
 set guifont=FiraCode\ Nerd\ Font:h12
-set linespace=3
+set linespace=2
 if has('gui_macvim')
     set macligatures
 endif
@@ -124,10 +126,10 @@ set cursorline
 set number
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber    cursorline
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber  nocursorline
 augroup END
-set title titleold= titlestring=%{expand(\"%:p:h:h\")}
+set title titleold= titlestring=%{getcwd()}
 " disable backup and allow unsaved buffer
 set hidden
 set nobackup noswapfile
