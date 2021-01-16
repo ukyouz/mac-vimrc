@@ -1,9 +1,9 @@
 " LeaderF
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 0
+let g:Lf_UseCache = 1
 let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_IgnoreCurrentBufferName = 0
 " popup mode
 let g:Lf_WindowPosition = 'bottom'
 let g:Lf_WindowHeight = 0.33
@@ -54,6 +54,8 @@ noremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR
 xnoremap <Leader>j :<C-U><C-R>=printf("Lederf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
 " restore latest search
 noremap <Leader>u :<C-U>Leaderf! rg --recall<CR>
+noremap <F4>      :<C-U>Leaderf! rg --next<CR>
+noremap <S-F4>    :<C-U>Leaderf! rg --prev<CR>
 
 " should use `Leaderf gtags --update` first
 let g:Lf_Gtagslabel = 'native-pygments'
@@ -61,7 +63,10 @@ noremap <leader>t :Leaderf gtags<CR>
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap <leader>fu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+" noremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" noremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 noremap \ :LeaderfRgInteractive<CR>
+
+let g:Lf_CommandMap = {'<C-K>': ['<Up>', '<C-K>'], '<C-J>': ['<Down>', '<C-J>']}
+
