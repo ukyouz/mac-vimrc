@@ -50,6 +50,28 @@ endfunction
 " airline config
 let g:airline_theme='fruit_punch'
 
+" go current tag
+function! CurrentTagSearch()
+    let l:cursor_pos = getpos('.')
+    let l:tag = split(lightline_tagbar#component(), '(')[0]
+    let l:search_term = l:tag
+    if &filetype ==# 'c'
+        " void main()
+        " static void main()
+        " ICODE static void main()
+        let l:search_term = '^\s*\(\(\w\+\)\s\+\)\+'.l:tag
+    elseif &filetype ==# 'python'
+        " def __init__():
+        let l:search_term = '^\s*def\s\+'.l:tag
+    endif
+    " push current cursor position to jump list
+    execute "normal " . l:cursor_pos[1] . "G" . (l:cursor_pos[2]-1) . "|"
+    " echo l:search_term
+    call search(l:search_term, 'cb')
+    call search(l:tag, 'c', line('.'))
+endfunction
+nnoremap <silent> <leader>gt :call CurrentTagSearch()<CR>
+
 " rainbow
 au FileType c,cpp,py,pyw call rainbow#load()
 let g:rainbow_active = 0
