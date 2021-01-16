@@ -1,3 +1,4 @@
 {
+    "intelephense.diagnostics.enable": false,
     "diagnostic.enable": false
 }
