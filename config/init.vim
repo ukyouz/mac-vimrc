@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/html5.vim'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'wellle/targets.vim'
 Plug 'vim-python/python-syntax'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'StanAngeloff/php.vim'
@@ -64,7 +65,7 @@ source ~/.vim/config/plug/leaderf.vim
 source ~/.vim/config/plug/vim-lsp-cxx-highlight.vim
 source ~/.vim/config/plug/vim-lsp-cxx-highlight.vim
 source ~/.vim/config/plug/vim-grep.vim
-source ~/.vim/config/plug/vim-extended-surround-block-element.vim
+" source ~/.vim/config/plug/vim-extended-surround-block-element.vim
 
 ""Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
