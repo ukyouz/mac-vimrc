@@ -101,6 +101,7 @@ vnoremap <silent> <C-c> "*y
 
 nnoremap <silent> <F3> :noh<CR>
 
+noremap <C-\> :vsp<CR>
 noremap <C-`> :vsp \| terminal<CR>
 
 " Genreal
