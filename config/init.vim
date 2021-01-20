@@ -20,6 +20,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'skywind3000/vim-preview'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/fzf.vim'
 " coc
@@ -66,6 +67,7 @@ source ~/.vim/config/plug/vim-highlightedyank.vim
 source ~/.vim/config/plug/leaderf.vim
 " source ~/.vim/config/plug/vim-lsp-cxx-highlight.vim
 source ~/.vim/config/plug/vim-grep.vim
+source ~/.vim/config/plug/vim-preview.vim
 " source ~/.vim/config/plug/vim-extended-surround-block-element.vim
 
 ""Search for selected text, forwards or backwards.
