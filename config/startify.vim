@@ -6,11 +6,15 @@ let g:startify_lists = [
     \ ]
 
 let g:startify_enable_special = 0
-let g:startify_change_to_dir = 0
+let g:startify_change_to_dir = 1
 let g:startify_change_to_vcs_root = 1
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '.session'
+
+let g:startify_bookmarks = [
+    \ {'i': '~/.vim'},
+    \]
 
 let g:startify_custom_header = [
     \ '          _                               ',

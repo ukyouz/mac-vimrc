@@ -73,8 +73,10 @@ endfunction
 nnoremap <silent> <leader>gt :call CurrentTagSearch()<CR>
 
 " rainbow
-au FileType c,cpp,py,pyw call rainbow#load()
-let g:rainbow_active = 0
+if has_key(g:plugs, 'vim-rainbows')
+  au FileType c,cpp,py,pyw call rainbow#load()
+  let g:rainbow_active = 0
+endif
 
 " Python Syntax
 let g:python_highlight_all = 1
@@ -91,3 +93,16 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 let php_var_selector_is_identifier = 0
+
+let g:rainbow_guifgs = ['gray', 'lightblue']
+let g:rainbow_ctermfgs = ['lightgray', 'lightblue', 'magenta']
+
+" treesitter for onrdark.nvim
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,
+  },
+}
+EOF

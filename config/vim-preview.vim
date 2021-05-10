@@ -1,5 +1,5 @@
 " vim-preview
-noremap <silent><c-[> :PreviewTag<CR>
+" noremap <silent><c-[> :PreviewTag<CR>
 noremap <silent><c-z> :PreviewClose<CR>
 noremap <silent><m-u> :PreviewScroll -1<cr>
 noremap <silent><m-d> :PreviewScroll +1<cr>
