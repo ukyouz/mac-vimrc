@@ -2,48 +2,64 @@
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 " syntax
-Plug 'sheerun/vim-polyglot'
 Plug 'othree/html5.vim'
+" Plug 'vim-python/python-syntax'
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
+" Plug 'StanAngeloff/php.vim'
+Plug 'nvim-treesitter/nvim-treesitter' ",{'do': ':TSUpdate'}   We recommend updating the parsers on update
+" Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
+" vim enhancement
+Plug 'sheerun/vim-polyglot'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
-Plug 'vim-python/python-syntax'
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'StanAngeloff/php.vim'
-" Plin 'easymotion/vim-easymotion'
-" vim enhancement
+Plug 'tpope/vim-unimpaired'
 Plug 'mhinz/vim-startify'
 Plug 'metakirby5/codi.vim'
 Plug 'preservim/nerdtree'
-Plug 'justinmk/vim-sneak'
+" Plin 'easymotion/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
+Plug 'rlane/pounce.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'skywind3000/vim-preview'
 Plug 'machakann/vim-highlightedyank'
-Plug 'junegunn/fzf.vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'nvim-treesitter/playground'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " coc
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'ray-x/lsp_signature.nvim'
 " Plug 'aceofall/gtags.vim'
 Plug 'ludovicchabant/vim-gutentags'
+" Plug 'skywind3000/gutentags_plus'
 " Plug 'Shougo/denite.nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF'
+" Plug 'tamago324/LeaderF-filer'
+" Plug 'linjiX/LeaderF-git'
 " Plug 'hari-rangarajan/CCTree'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vista.vim'
+
 " colorscheme
 Plug 'itchyny/lightline.vim'
-Plug 'mkalinski/vim-lightline_tagbar'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
+" Plug 'folke/twilight.nvim'
 " Plug 'navarasu/onedark.nvim'
 Plug 'ukyouz/onedark.vim'
 " Plug 'rakr/vim-colors-rakr'
 " Plug 'nightsense/carbonized'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'frazrepo/vim-rainbow'
-Plug 'preservim/tagbar'
+
 " git-enhanced
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -54,27 +70,30 @@ filetype plugin indent on    " required
 " map ; :
 " imap kj <Esc>
 " imap jk <Esc>
-nnoremap <C-,> @@
+" command-, in mac, gui only
+nnoremap <D-,> @@
 let mapleader = ' '
-let $VIMRC = "~/.vim/config"
 
-" $url = 'https://hiyori.cc/article/dh-cafe'
-source $VIMRC/vim-enhancement.vim
-source $VIMRC/startify.vim
+let $VIMRC = "~/.config/nvim/config"
+" source $VIMRC/cctree.vim
+" source $VIMRC/coc.vim
 source $VIMRC/colorscheme.vim
+" source $VIMRC/denite.vim
 " source $VIMRC/fzf.vim
 source $VIMRC/git-enhanced.vim
-source $VIMRC/nerdtree.vim
-" source $VIMRC/coc.vim
-" source $VIMRC/cctree.vim
 source $VIMRC/gtags.vim
-source $VIMRC/vim-highlightedyank.vim
-" source $VIMRC/denite.vim
 source $VIMRC/leaderf.vim
-" source $VIMRC/vim-lsp-cxx-highlight.vim
-source $VIMRC/vim-grep.vim
-source $VIMRC/vim-preview.vim
+source $VIMRC/lspconfig.vim
+source $VIMRC/nerdtree.vim
+source $VIMRC/pounce.vim
+source $VIMRC/startify.vim
+source $VIMRC/treesitter.vim
+source $VIMRC/vim-enhancement.vim
 " source $VIMRC/vim-extended-surround-block-element.vim
+source $VIMRC/vim-grep.vim
+source $VIMRC/vim-highlightedyank.vim
+" source $VIMRC/vim-lsp-cxx-highlight.vim
+source $VIMRC/vim-preview.vim
 
 ""Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -119,7 +138,7 @@ set list listchars=tab:\▸\ ,trail:·,extends:»,precedes:«,nbsp:×
 set ttimeoutlen=50
 "set fillchars+=vert:\█
 set guifont=FiraCode\ Nerd\ Font:h13
-set linespace=2
+set linespace=4
 if has('gui_macvim')
     set macligatures
 endif
@@ -129,7 +148,7 @@ set belloff=all
 "set foldlevel=0 foldnestmax=1 scrolloff=5 " default all close
 set nowrapscan
 set splitbelow splitright
-set autoindent smartindent
+" set autoindent smartindent
 set nowrap ruler
 set wildmenu
 set hlsearch incsearch

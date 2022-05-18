@@ -13,7 +13,7 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '.session'
 
 let g:startify_bookmarks = [
-    \ {'i': '~/.vim'},
+    \ {'i': '~/.config/nvim'},
     \]
 
 let g:startify_custom_header = [

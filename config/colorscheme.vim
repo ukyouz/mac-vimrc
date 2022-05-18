@@ -10,10 +10,12 @@ syntax on
 set background=dark
 if has('gui_macvim')
     let g:one_allow_italics = 1
+    let g:onedark_style = 'darker'
     colorscheme one
-    call one#highlight('VertSplit', '5c6370', '5c6370', 'none')
+    " call one#highlight('VertSplit', '5c6370', '5c6370', 'none')
 else
     let g:onedark_termcolors=256
+    let g:onedark_style = 'darker'
     colorscheme onedark
 endif
 " lightline config
@@ -23,7 +25,7 @@ let g:lightline={
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'myfilename'],
-  \             [ 'tagbar' ],
+  \             [ 'tagbar', 'method' ],
   \           ],
   \   'right': [ [ 'lineinfo' ],
   \            [ 'gitbranch', 'percent' ],
@@ -32,9 +34,14 @@ let g:lightline={
   \ 'component_function': {
   \   'myfilename': 'LightlineFilename',
   \   'gitbranch': 'FugitiveHead',
-  \   'tagbar': 'lightline_tagbar#component'
+  "\   'tagbar': 'lightline_tagbar#component',
+  \   'method': 'NearestMethodOrFunction',
   \ }
   \ }
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
 
 function! LightlineFilename()
     return (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
@@ -70,7 +77,7 @@ function! CurrentTagSearch()
     call search(l:search_term, 'cb')
     call search(l:tag, 'c', line('.'))
 endfunction
-nnoremap <silent> <leader>gt :call CurrentTagSearch()<CR>
+" nnoremap <silent> <leader>gt :call CurrentTagSearch()<CR>
 
 " rainbow
 if has_key(g:plugs, 'vim-rainbows')
@@ -97,12 +104,3 @@ let php_var_selector_is_identifier = 0
 let g:rainbow_guifgs = ['gray', 'lightblue']
 let g:rainbow_ctermfgs = ['lightgray', 'lightblue', 'magenta']
 
-" treesitter for onrdark.nvim
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,
-  },
-}
-EOF
