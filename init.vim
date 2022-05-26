@@ -10,6 +10,7 @@ Plug 'nvim-treesitter/nvim-treesitter' ",{'do': ':TSUpdate'}   We recommend upda
 " Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'lewis6991/spellsitter.nvim'  " fix SpellBad hightlighting
 
 " vim enhancement
 Plug 'sheerun/vim-polyglot'
@@ -154,6 +155,7 @@ set wildmenu
 set hlsearch incsearch
 set cursorline
 set number
+set spell
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber    cursorline
